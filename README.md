@@ -26,12 +26,19 @@ Collection of bash scripts to automate my Plex + Deluge + CouchPotato + SickRage
 
 ## I choose the easy one for the Operational System
 
-- I'm using a NOOBs Lite version installer (https://www.raspberrypi.org/downloads/noobs/) and doing a Raspbian Lite (minimal) install
+- I'm using a RASPBIAN STRETCH LITE version (https://www.raspberrypi.org/downloads/raspbian/)
+- Flash your SDCARD with Etcher (https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
+- Mount your just flashed SDCARD and add an empty "ssh" file to "boot" mount point
+
+```
+$ cd /Volumes/boot
+$ touch ssh
+```
+
+- Put your SDCARD to your Raspberry hardware and turn it on
+- Using your terminal ssh to your raspberry ip address
 - Default user "pi", default password "raspberry"
-
-PS: No SSH access this first time
-
-- Using the console start raspbian configuration tool
+- Configure
 
 ```
 $ sudo raspi-config
@@ -41,13 +48,13 @@ $ sudo raspi-config
 
   - Change default passwords
   - Change hostname
-  - Enable SSH in "Interfacing Options"
+  - Enable SSH in "Interfacing Options" (if not already enabled)
   - Update
   - Maybe you want to create your own user after reboot
 
 ## Beginning the installation
 
-- After Raspbian Lite install I did a full update as always
+- After configuration did a full update as always
 
 ```
 # apt update
