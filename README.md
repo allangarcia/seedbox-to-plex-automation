@@ -81,10 +81,6 @@ $ sudo raspi-config
 # sed -i "s/ENABLE_DELUGED=0/ENABLE_DELUGED=1/" /etc/default/deluged
 # service deluged restart
 ```
-PS: Make sure the service is started before next command
-```
-# echo "deluged:deluged:10" >> /var/lib/deluged/config/auth
-```
 
 PS: No init script is provided for __deluge-web__ package unfortunately, so install mine. ;-D
 
@@ -99,14 +95,7 @@ PS: No init script is provided for __deluge-web__ package unfortunately, so inst
 - Then I installed additional packages
 
 ```
-# apt install --no-install-recommends oracle-java8-jdk git rsync vim htop mediainfo youtube-dl
-```
-
-- Add some users to sudo 'cause some scripts require root access
-
-```
-# sed -i "s/^%sudo.*/%sudo\tALL=(ALL) NOPASSWD: ALL/" /etc/sudoers
-# adduser debian-deluged sudo
+# apt install git vim htop mediainfo youtube-dl
 ```
 
 ## Download the raw stuff
