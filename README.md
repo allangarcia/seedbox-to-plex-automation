@@ -48,7 +48,10 @@ $ sudo raspi-config
 
   - Change default passwords
   - Change hostname
+  - Enable Wifi (if applicable)
+  - Expand your filesystem if not already
   - Enable SSH in "Interfacing Options" (if not already enabled)
+  - Adjust your locale settings
   - Update
   - Maybe you want to create your own user after reboot
 
@@ -66,9 +69,9 @@ $ sudo raspi-config
 
 ```
 # wget -O - https://dev2day.de/pms/dev2day-pms.gpg.key | apt-key add -
-# echo "deb https://dev2day.de/pms/ jessie main" | tee /etc/apt/sources.list.d/pms.list
+# echo "deb https://dev2day.de/pms/ stretch main" | tee /etc/apt/sources.list.d/pms.list
 # apt update
-# apt install plexmediaserver
+# apt install plexmediaserver-installer
 ```
 
 - Then I installed my seedbox packages
@@ -168,10 +171,16 @@ PS: The first start takes a little longer
 
 ## Mount your external media
 
+- Install support for exfat
+
+```
+# apt install exfat-fuse exfat-utils
+
+
 - Make your mountpoint
 
 ```
-# mkdir -p /mnt/media
+# mkdir -p /mnt/STORAGE
 ```
 
 - Plug your device, wipe the partition table, make a new partition and filesystem
@@ -180,7 +189,7 @@ PS: The first start takes a little longer
 
 ```
 # fdisk /dev/sda
-# mkfs.ext4 /dev/sda1
+# mkfs.exfat -n STORAGE /dev/sda1
 ```
 
 - Get the UUID of your new partition, and write down (CTRL+C!) the UUID= part
