@@ -164,7 +164,7 @@ PS: The first start takes a little longer
 
 ```
 # apt install exfat-fuse exfat-utils
-
+```
 
 - Make your mountpoint
 
