@@ -196,53 +196,32 @@ PS: The first start takes a little longer
 
 ```
 # blkid /dev/sda1
+/dev/sda1: LABEL="STORAGE" UUID="D7AE-8A04" TYPE="exfat" PTTYPE="dos" PARTUUID="eb42e7ee-d18a-4652-90eb-6e61673b1323"
 ```
 
-```
-/dev/sda1: UUID="a01e4f27-1f10-42dc-bf94-a4e48d7b9bfe" TYPE="ext4" PARTUUID="5850a332-01"
-```
-
-- Download the mount file for systemd
+- Make your entry on /etc/fstab
 
 ```
-# cd /etc/systemd/system
-# wget https://gist.github.com/allangarcia/203e7d57e5e213b54f73509c24e089df/raw/6fff42aca4c1e88478f1f52ec34d8660178d5a21/mnt-media.mount
-```
+Append to /etc/fstab
 
-- Edit this file and change the UUID part for your UUID copied previously
-
-```
-# sed -i "s/by-uuid\/.*/by-uuid\/YOUR-UUID-GOES-HERE/" mnt-media.mount
-```
-
-- Reload systemd daemon, enable the service and start it
-
-```
-# systemctl daemon-reload
-# systemctl enable mnt-media.mount
-# systemctl start mnt-media.mount
-# systemctl status mnt-media.mount
+UUID=D7AE-8A04		/mnt/STORAGE	exfat	defaults		0	2
 ```
 
 - Make directories to hold your downloads
 
 ```
-# cd /mnt/media
+# cd /mnt/STORAGE
 # mkdir Torrents
 # cd Torrents
-# mkdir Completed Downloading Inbox
-# chmod 777 Inbox
-# cd /mnt/media
-# chown -R debian-deluged.debian-deluged Torrents
+# mkdir Completed Downloading
 ```
 
 - Make directories to hold your media
 
 ```
-# cd /mnt/media
-# mkdir Movies TV\ Shows
-# chown -R plex: Movies
-# chown -R plex: TV\ Shows
+# cd /mnt/STORAGE
+# mkdir Movies
+# mkdir TV\ Shows
 ```
 
 - Export to env the place of your media
