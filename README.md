@@ -1,7 +1,7 @@
 ## CURRENTLY IN CHANGE ##
 
 # seedbox-to-plex-automation
-Collection of bash scripts to automate my Plex + Deluge + CouchPotato + SickRage
+Collection of bash scripts to automate my Plex + Deluge + CouchPotato + SickRage (NO FILEBOT VERSION)
 
 # The FLOW works like this
 
@@ -106,16 +106,7 @@ PS: No init script is provided for __deluge-web__ package unfortunately, so inst
 # cd /opt
 ```
 
-- Filebot! This is the best renaming tool (don't fool yourself by enabling rename on other tools)
-
-```
-# mkdir -p /opt/filebot
-# cd /opt/filebot
-# sh -xu <<< "$(curl -fsSL https://raw.githubusercontent.com/filebot/plugins/master/installer/portable.sh)"
-# /opt/filebot/filebot.sh
-```
-
-- Sickrage! I use this only to get .torrent file into deluge Inbox folder
+- Sickrage! Manager for your TV Series contents
 
 ```
 # cd /opt
@@ -134,7 +125,7 @@ PS: No init script is provided for __deluge-web__ package unfortunately, so inst
 
 PS: The first start takes a little longer
 
-- Couchpotato! Same thing as Sickrage for movies
+- Couchpotato! Manager for your Movies contents
 
 ```
 # cd /opt
@@ -149,13 +140,6 @@ PS: The first start takes a little longer
 # mkdir -p /var/run/couchpotato
 # chown couchpotato.couchpotato /var/run/couchpotato
 # service couchpotato start
-```
-
-- Clone this project! This will do so much for you...
-
-```
-# cd /opt
-# git clone https://github.com/allangarcia/seedbox-to-plex-automation.git scripts
 ```
 
 ## Mount your external media
@@ -213,41 +197,11 @@ UUID=D7AE-8A04		/mnt/STORAGE	exfat	defaults		0	2
 # mkdir TV\ Shows
 ```
 
-- Export to env the place of your media
-
-```
-# echo MEDIA_PATH=/mnt/media >> /etc/environment
-```
-
 ## Configuration
-
-- Configure filebot to autenticate into opensubtitles
-
-```
-# /opt/filebot/filebot.sh -script fn:configure
-Enter OpenSubtitles username: YOUR USERNAME
-Enter OpenSubtitles password: YOUR PASSWORD
-Testing OpenSubtitles... OK
-Done ヾ(＠⌒ー⌒＠)ノ
-```
-
-- Configure your TMDB API key to autenticate into the site
-
-PS: This is a required for trailers to work
-
-```
-# echo TMDB_KEY="PUT_YOUR_THEMOVIEDB_API_KEY_HERE" >> /etc/environment
-```
 
 - Configure plex to index your media on previouly created media directories
 
 This article may be helpful: https://support.plex.tv/hc/en-us/articles/200264746-Quick-Start-Step-by-Step-Guides
-
-- Enable cron-process script
-
-```
-# echo -e "00 10\t* * *\troot\t/opt/scripts/cron-process.sh" >> /etc/crontab
-```
 
 - Configuring Deluge
 
@@ -282,26 +236,6 @@ Then the conection should work
 Configure the directories as shown
 
 ![](https://github.com/allangarcia/seedbox-to-plex-automation/raw/master/docs/Tela%20C1.png)
-
-Enable the plugin "execute"
-
-![](https://github.com/allangarcia/seedbox-to-plex-automation/raw/master/docs/Tela%20D1.png)
-
-Configure plugin "execute"
-
-![](https://github.com/allangarcia/seedbox-to-plex-automation/raw/master/docs/Tela%20D2.png)
-
-Add a new event
-
-![](https://github.com/allangarcia/seedbox-to-plex-automation/raw/master/docs/Tela%20D3.png)
-
-Choose "On Complete" and configure the script "auto-process.sh"
-
-![](https://github.com/allangarcia/seedbox-to-plex-automation/raw/master/docs/Tela%20D4.png)
-
-Should look like this
-
-![](https://github.com/allangarcia/seedbox-to-plex-automation/raw/master/docs/Tela%20D5.png)
 
 Configure bandwith accordinly to your connection speed, mine works fine like this.
 
