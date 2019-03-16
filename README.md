@@ -1,5 +1,3 @@
-## CURRENTLY IN CHANGE ##
-
 # seedbox-to-plex-automation
 Collection of bash scripts to automate my Plex + Deluge + CouchPotato + SickRage (NO FILEBOT VERSION)
 
@@ -8,11 +6,11 @@ Collection of bash scripts to automate my Plex + Deluge + CouchPotato + SickRage
 ```
 [ CouchPotato (Movies) ] - \
                             \                                          
-                             \                              / - > [ FileBot ] - \
-                              \                            /                     \
-[ Manually ] - - - - - - > [ Deluged ] - > [ Scripts! ] - |                       | - > [ Plex ]
-                              /                            \                     /
-                             /                              \ - > [ Trailer ] - /
+                             \
+                              \
+[ Manually ] - - - - - - > [ Deluged ] - - - - - - > [ Plex ]
+                              /
+                             /
                             /
  [ SickRage (TV Shows) ] - /
 ```
