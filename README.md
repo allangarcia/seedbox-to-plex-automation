@@ -110,7 +110,7 @@ PS: No init script is provided for __deluge-web__ package unfortunately, so inst
 # cd /opt
 # addgroup --system sickrage
 # adduser --disabled-password --system --home /var/lib/sickrage --gecos "SickRage" --ingroup sickrage sickrage
-# git clone https://github.com/SickRage/SickRage.git sickrage
+# git clone http://git.sickrage.ca/SiCKRAGE/sickrage.git sickrage
 # chown -R sickrage.sickrage /opt/sickrage
 # cp /opt/sickrage/runscripts/init.debian /etc/init.d/sickrage
 # chown root.root /etc/init.d/sickrage
