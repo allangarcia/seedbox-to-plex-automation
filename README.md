@@ -104,20 +104,21 @@ PS: No init script is provided for __deluge-web__ package unfortunately, so inst
 # cd /opt
 ```
 
-- Sickrage! Manager for your TV Series contents
+- Medusa! Manager for your TV Series contents (after SickRage being an asshole and asks for SSO)
 
 ```
 # cd /opt
-# addgroup --system sickrage
-# adduser --disabled-password --system --home /var/lib/sickrage --gecos "SickRage" --ingroup sickrage sickrage
-# git clone http://git.sickrage.ca/SiCKRAGE/sickrage.git sickrage
-# chown -R sickrage.sickrage /opt/sickrage
-# cp /opt/sickrage/runscripts/init.debian /etc/init.d/sickrage
-# chown root.root /etc/init.d/sickrage
-# chmod 755 /etc/init.d/sickrage
-# update-rc.d sickrage defaults
-# mkdir -p /var/run/sickrage
-# chown sickrage.sickrage /var/run/sickrage
+# addgroup --system medusa
+# adduser --disabled-password --system --home /var/lib/medusa --gecos "Medusa" --ingroup medusa medusa
+# git clone https://github.com/pymedusa/Medusa.git medusa
+# pip install -r /opt/medusa/requirements.txt
+# chown -R medusa.medusa /opt/medusa
+# cp /opt/medusa/runscripts/init.debian /etc/init.d/medusa
+# chown root.root /etc/init.d/medusa
+# chmod 755 /etc/init.d/medusa
+# update-rc.d medusa defaults
+# mkdir -p /var/run/medusa
+# chown medusa.medusa /var/run/medusa
 # service sickrage start
 ```
 
